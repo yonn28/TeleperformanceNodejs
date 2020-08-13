@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<pre><%= data.cc %></pre>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/update/<%= data.id %>" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="cc" class="form_control" value="<%= data.cc %>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="name" value="<%= data.name %>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="country" value="<%= data.country %>">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>

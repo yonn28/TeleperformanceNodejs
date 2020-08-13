@@ -1,0 +1,62 @@
+
+<%- include('partials/header') %>
+    
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>n</th>
+                        <th>cc</th>
+                        <th>name</th>
+                        <th>country</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data){ %>
+                        <% for(var i=0; i< data.length; i++){  %> 
+                            <tr>
+                                <td><%= (i+1) %></td>
+                                <td><%= data[i].cc %></td>
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].country %></td>
+                                <td>
+                                    <a href="/delete/<%= data[i].id %>" class="btn btn-danger">DELETE</a>
+                                    <a href="/update/<%= data[i].id %>" class="btn btn-primary">UPDATE</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                   <% } %>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-md-5 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="cc" placeholder="CC" class="form_control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="country" placeholder="country">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<%- include('partials/footer') %>
